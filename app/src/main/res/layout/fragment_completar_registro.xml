@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:windowBackground"
+    android:gravity="center_horizontal"
+    tools:context=".LoginFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="40dp"
+        android:textSize="80dp"
+        android:text="TwinT" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_gravity="left"
+        android:paddingHorizontal="55dp"
+        android:text="Bienvenido. \n\nNecesitamos que completes tu nuevo perfil antes de continuar a la aplicación." />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre" />
+
+    <EditText
+        android:id="@+id/et_nombre"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Edad" />
+
+    <EditText
+        android:id="@+id/et_edad"
+        android:inputType="numberDecimal"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Pais" />
+
+    <Spinner
+        android:id="@+id/sp_pais"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/bt_registrate"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Completar" />
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:textColor="@color/teal_700"
+        android:text="Cerrar Sesión" />
+
+</LinearLayout>
