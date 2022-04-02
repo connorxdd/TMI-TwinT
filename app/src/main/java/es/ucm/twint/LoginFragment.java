@@ -1,5 +1,6 @@
 package es.ucm.twint;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,14 +37,8 @@ public class LoginFragment extends Fragment {
         Snackbar.make(getView(), "USUARIO: " + username +" - CONTRASENA: " + password, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
 
-        CompletarRegistroFragment fragment = new CompletarRegistroFragment();
-        getActivity()
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .setReorderingAllowed(true)
-                .addToBackStack("CompletarRegistro")
-                .add(R.id.cv_session, fragment)
-                .commit();
+        Intent intent = new Intent(getActivity(), PrincipalActivity.class);
+        startActivity(intent);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {

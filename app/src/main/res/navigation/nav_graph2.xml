@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="es.ucm.twint.FirstFragment"
+        android:name="es.ucm.twint.PerfilesFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_perfiles">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
