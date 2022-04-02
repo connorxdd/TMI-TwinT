@@ -9,17 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Twint">
-        <activity android:exported="true" android:name=".VerMenu"></activity>
-        <activity android:exported="true" android:name=".VerPerfiles" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".PrincipalActivity"
+            android:exported="false"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/Theme.Twint.NoActionBar" />
+        <activity
+            android:name=".SessionActivity"
+            android:exported="true"
+            android:label="@string/title_activity_session"
+            android:theme="@style/Theme.Twint.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".VerMenu"
+            android:exported="true" />
+        <activity
+            android:name=".VerPerfiles"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
