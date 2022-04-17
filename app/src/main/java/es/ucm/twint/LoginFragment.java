@@ -1,7 +1,10 @@
 package es.ucm.twint;
 
+import es.ucm.twint.data.*;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
-
 import es.ucm.twint.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
@@ -56,6 +58,12 @@ public class LoginFragment extends Fragment {
         binding.btRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
+                Log.e("TEST","Test: START...");
+                Database db= new Database();
+                db.getUser(1);
+                Log.e("TEST", "Test: END.");
+                */
 //                NavHostFragment.findNavController(LoginFragment.this)
 //                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
                 RegistroFragment fragment = new RegistroFragment();

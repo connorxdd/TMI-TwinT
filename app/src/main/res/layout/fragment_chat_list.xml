@@ -8,6 +8,6 @@
     tools:context=".PerfilesFragment"
     android:background="@color/white"
     android:paddingTop="?android:attr/actionBarSize"
-    android:id="@+id/lv_perfiles">
+    android:id="@+id/lv_chat_list" >
 
 </ListView>

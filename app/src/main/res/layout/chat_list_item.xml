@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="100dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_usuario"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:outlineProvider="background"
+        android:padding="10dp"
+        android:src="@drawable/default_user_icon"
+    />
+
+    <TextView
+        android:id="@+id/tv_nombre_apelido_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_marginLeft="10dp"
+        android:text="Daniel Compán López de Lacalle" />
+
+    <TextView
+        android:id="@+id/tv_numero_msj_nuevos"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/text_view_circular"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="1" />
+
+</LinearLayout>
