@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
+    //id 'org.jetbrains.kotlin.kapt' // for Realm if application uses Kotlin
 }
+
+apply plugin: "realm-android"
 
 android {
     compileSdkVersion 31
@@ -12,6 +15,7 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true // Avoid Dalvik Executable (DEX) limit of 65,536 references
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,4 +47,15 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // For avoid Dalvik Executable (DEX) limit of 65,536 references in devices with previous versions of Android 5.0
+    implementation "androidx.multidex:multidex:2.0.1"
+    // CircleImageView dependency for creating the circular profile picture
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
+
+// To use Realm Sync.
+/*
+realm {
+    syncEnabled = true
+}
+ */

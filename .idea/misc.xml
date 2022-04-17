@@ -4,6 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/drawable/circulo.xml" value="0.1535" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/drawable/text_view_circular.xml" value="0.1535" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/activity_principal.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/activity_session.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/chat_list_item.xml" value="0.264" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/content_principal.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/fragment_chat_list.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/fragment_edit_profile.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/fragment_perfiles.xml" value="0.15677083333333333" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/fragment_registro.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/layout/perfil.xml" value="0.10054347826086957" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/menu/main_menu.xml" value="0.15677083333333333" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.109" />
+        <entry key="..\:/Users/usuario/Repositories/TMI-TwinT/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1095" />
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_session.xml" value="0.2776268115942029" />

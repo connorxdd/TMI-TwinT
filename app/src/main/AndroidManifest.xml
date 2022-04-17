@@ -13,7 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Twint">
+        android:theme="@style/Theme.Twint"
+        android:name="androidx.multidex.MultiDexApplication"
+        >
+        <!-- name: Avoid Dalvik Executable (DEX) limit of 65,536 references -->
         <activity
             android:name=".PrincipalActivity"
             android:exported="false"
