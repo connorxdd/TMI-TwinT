@@ -8,25 +8,31 @@
     android:background="?android:windowBackground"
     android:gravity="center_horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="40dp"
-        android:textSize="80dp"
-        android:text="TwinT" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:textSize="20dp"
+        android:layout_marginTop="15dp"
         android:text="Editar perfil" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
     <TextView
+        android:layout_marginTop="30dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Nombre de Usuario" />
+        android:text="Nuevo nombre de Usuario" />
 
     <EditText
         android:id="@+id/et_usuario"
@@ -37,7 +43,7 @@
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Contraseña" />
+        android:text="Contraseña actual" />
 
     <EditText
         android:id="@+id/et_password"
@@ -49,28 +55,41 @@
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Confirmar contraseña" />
+        android:text="Nueva contraseña" />
 
     <EditText
-        android:id="@+id/et_password_confirm"
+        android:id="@+id/et_new_password"
         android:inputType="textPassword"
         android:layout_width="300dp"
         android:layout_height="40dp" />
 
-    <Button
-        android:id="@+id/bt_registrate"
-        android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Crear Cuenta" />
+        android:text="Confirmar nueva contraseña" />
+
+    <EditText
+        android:id="@+id/et_new_password_confirm"
+        android:inputType="textPassword"
+        android:layout_width="300dp"
+        android:layout_height="40dp" />
+
 
     <Button
-        android:id="@+id/bt_login"
+        android:id="@+id/bt_upload_pictures"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:textColor="@color/teal_700"
-        android:text="Iniciar Sesión" />
+        android:background="@color/purple_200"
+        android:text="Subir foto" />
+
+    <Button
+        android:id="@+id/bt_save_changes"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_200"
+        android:text="Guardar Cambios" />
+
 
 </LinearLayout>

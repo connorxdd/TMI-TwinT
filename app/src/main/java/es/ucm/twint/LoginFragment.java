@@ -1,20 +1,16 @@
 package es.ucm.twint;
 
-import es.ucm.twint.data.*;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
+
 import es.ucm.twint.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
@@ -45,7 +41,6 @@ public class LoginFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         binding.btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +49,7 @@ public class LoginFragment extends Fragment {
                 onUserLogin();
             }
         });
+
 
         binding.btRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
