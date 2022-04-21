@@ -55,6 +55,9 @@ public class PrincipalActivity extends AppCompatActivity {
             case R.id.menu_item_chat:
                 loadChatListFragment();
                 return true;
+            case R.id.menu_item_logout:
+                System.exit(1);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
