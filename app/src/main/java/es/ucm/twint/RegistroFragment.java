@@ -1,14 +1,13 @@
 package es.ucm.twint;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import es.ucm.twint.databinding.FragmentRegistroBinding;
 
@@ -33,22 +32,14 @@ public class RegistroFragment extends Fragment {
         binding.btRegistrate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                if(TextUtils.isEmpty(binding.etUsuario.getText().toString()) || TextUtils.isEmpty(binding.etPassword.getText().toString())){
-                    Toast.makeText(getActivity(), "No se puede crear un usuario con campos vacíos", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    CompletarRegistroFragment fragment = new CompletarRegistroFragment();
-                    getActivity()
-                            .getSupportFragmentManager()
-                            .beginTransaction()
-                            .setReorderingAllowed(true)
-                            .addToBackStack("CompletarRegistro")
-                            .add(R.id.cv_session, fragment)
-                            .commit();
-                }
-
+                CompletarRegistroFragment fragment = new CompletarRegistroFragment();
+                getActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction()
+                        .setReorderingAllowed(true)
+                        .addToBackStack("CompletarRegistro")
+                        .add(R.id.cv_session, fragment)
+                        .commit();
 //                NavHostFragment.findNavController(RegistroFragment.this)
 //                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }

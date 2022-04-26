@@ -7,14 +7,13 @@
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1825" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/drawable/text_view_circular.xml" value="0.1825" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/activity_principal.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/activity_session.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/activity_ver_perfiles.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/content_principal.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/content_principal.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/fragment_completar_registro.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/fragment_login.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/fragment_perfiles.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/layout/fragment_registro.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Administrator/Desktop/Uni/TMI-TwinT/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Wenbo/Documents/GitHub/TMI-TwinT/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Wenbo/Documents/GitHub/TMI-TwinT/app/src/main/res/layout/fragment_edit_profile.xml" value="0.24954710144927536" />
         <entry key="..\:/Users/Wenbo/Documents/GitHub/TMI-TwinT/app/src/main/res/layout/fragment_perfiles.xml" value="0.358695652173913" />

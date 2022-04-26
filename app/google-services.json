@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "773602286359",
+    "firebase_url": "https://twint-347715-default-rtdb.firebaseio.com",
     "project_id": "twint-347715",
     "storage_bucket": "twint-347715.appspot.com"
   },
@@ -21,6 +22,35 @@
             "certificate_hash": "57e5d496eb524a144b5ba2ddc9a6caba3407b33f"
           }
         },
+        {
+          "client_id": "773602286359-oc43nnt2ji5alr9026lc257a987uu9at.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4UIB85f7_MSaDuP38y5miQxBT_e89uMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "773602286359-oc43nnt2ji5alr9026lc257a987uu9at.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773602286359:android:14267477af3ab2ef643552",
+        "android_client_info": {
+          "package_name": "es.ucm.twint"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "773602286359-oc43nnt2ji5alr9026lc257a987uu9at.apps.googleusercontent.com",
           "client_type": 3
