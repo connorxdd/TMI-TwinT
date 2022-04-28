@@ -1,88 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="?android:windowBackground"
-    android:gravity="center_horizontal">
-
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:textSize="20dp"
-        android:layout_marginTop="15dp"
-        android:text="Editar perfil" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/ic_launcher_background"
-        app:civ_border_width="2dp"
-        app:civ_border_color="@color/white"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
-
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Preferencias" />
-
-    <EditText
-        android:id="@+id/et_preferences"
-        android:layout_width="300dp"
-        android:layout_height="40dp" />
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Descripción personal" />
-
-    <EditText
-        android:id="@+id/et_personal_description"
-        android:layout_width="300dp"
-        android:layout_height="40dp" />
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Correo electrónico" />
-
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="300dp"
-        android:layout_height="40dp"/>
-
-    <Button
-        android:id="@+id/bt_upload_pictures"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:text="Subir foto" />
-
-    <Button
-        android:id="@+id/bt_upload_multimedia"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:text="Subir multimedia" />
-
-    <Button
-        android:id="@+id/bt_save_changes"
-        android:layout_marginTop="100dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:text="Guardar Cambios" />
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="?android:windowBackground"
+        android:gravity="center_horizontal">
 
 
-</LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Editar perfil" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Preferencias" />
+
+        <EditText
+            android:id="@+id/et_preferences"
+            android:layout_width="300dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Descripción personal" />
+
+        <EditText
+            android:id="@+id/et_personal_description"
+            android:layout_width="300dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/tv_social_network"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:text="Redes Sociales"/>
+
+        <TableLayout
+            android:id="@+id/tl_social_networks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TableLayout>
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Biografía" />
+
+        <EditText
+            android:id="@+id/et_biography"
+            android:layout_width="300dp"
+            android:layout_height="40dp"/>
+
+        <Button
+            android:id="@+id/bt_upload_pictures"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_200"
+            android:text="Subir foto" />
+
+        <Button
+            android:id="@+id/bt_save_changes"
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_200"
+            android:text="Guardar Cambios" />
+
+
+    </LinearLayout>
+</ScrollView>
