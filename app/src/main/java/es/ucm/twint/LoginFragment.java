@@ -62,7 +62,7 @@ public class LoginFragment extends Fragment {
                 */
 //                NavHostFragment.findNavController(LoginFragment.this)
 //                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-                RegistroFragment fragment = new RegistroFragment();
+                CompletarRegistroFragment fragment = new CompletarRegistroFragment();
                 getActivity()
                         .getSupportFragmentManager()
                         .beginTransaction()

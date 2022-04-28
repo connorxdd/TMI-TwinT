@@ -16,6 +16,7 @@
         android:theme="@style/Theme.Twint"
         android:name="androidx.multidex.MultiDexApplication"
         >
+
         <!-- name: Avoid Dalvik Executable (DEX) limit of 65,536 references -->
         <activity
             android:name=".PrincipalActivity"

@@ -155,6 +155,7 @@ public class EditProfileFragment extends Fragment {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                uploadImage();
                 int a = 0;
             }
         });
@@ -240,7 +241,7 @@ public class EditProfileFragment extends Fragment {
                 if (result != null){
                     mImageView.setImageURI(result);
                     myImage = result;
-                    uploadImage();
+                    //uploadImage();
                 }
             }
         });
