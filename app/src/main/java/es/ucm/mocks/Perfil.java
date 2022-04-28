@@ -1,27 +1,41 @@
 package es.ucm.mocks;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Perfil {
+
+    String id;
     String nombre;
     String imagen;
     String personalDescription;
     String preferences;
-    String email;
+    String biography;
     ArrayList<String> urlFotos;
     String picture;
-    ArrayList<String> multimedia;
+    Map<String, String> socialNetworks;
+
 
     public Perfil() {
+        this.socialNetworks = new HashMap<String, String>();
+        this.socialNetworks.put("facebook","test");
+        this.socialNetworks.put("instagram","");
+        this.socialNetworks.put("linkedin","");
+        this.socialNetworks.put("spotify","");
+        this.socialNetworks.put("tiktok","");
+        this.socialNetworks.put("twitch","");
+        this.socialNetworks.put("twitter","");
+        this.socialNetworks.put("youtube","");
+        this.socialNetworks.put("web","");
     }
     public Perfil(String nombre, String imagen, ArrayList<String> urlFotos) {
+        this();
+        // id never should be null
+        this.id = "smth";
         this.nombre = nombre;
         this.imagen = imagen;
         this.urlFotos = urlFotos;
-    }
-
-    public void addMultimedia(String m) {
-        this.multimedia.add(m);
     }
 
     public String getNombre() {
@@ -42,16 +56,16 @@ public class Perfil {
         this.personalDescription = personalDescription;
     }
 
+    public void setSocialNetwork(String key, String value) {
+        this.socialNetworks.put(key, value);
+    }
+
+    public String getSocialNetwork(String key) {
+        return this.socialNetworks.get(key);
+    }
+
     public String getPreferences() {
         return preferences;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public void setPreferences(String preferences) {
@@ -66,11 +80,28 @@ public class Perfil {
         this.picture = picture;
     }
 
-    public ArrayList<String> getMultimedia() {
-        return multimedia;
+    public String getBiography() {
+        return biography;
     }
 
-    public void setMultimedia(ArrayList<String> multimedia) {
-        this.multimedia = multimedia;
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Map<String, String> getSocialNetworks() {
+        return socialNetworks;
+    }
+
+    public void setSocialNetworks(Map<String, String> socialNetworks) {
+        this.socialNetworks = socialNetworks;
     }
 }
