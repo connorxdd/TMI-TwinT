@@ -2,16 +2,10 @@ package es.ucm.twint;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import es.ucm.twint.databinding.ActivitySessionBinding;
 
@@ -28,6 +22,10 @@ public class SessionActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
+        FirebaseAuth.getInstance().signOut();
+        for(int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); ++i) {
+            getSupportFragmentManager().popBackStack();
+        }
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
             bundle.putInt("pepe", 0); // For testing

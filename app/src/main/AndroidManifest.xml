@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Twint"
         android:name="androidx.multidex.MultiDexApplication"
+        android:usesCleartextTraffic="true"
         >
 
         <!-- name: Avoid Dalvik Executable (DEX) limit of 65,536 references -->

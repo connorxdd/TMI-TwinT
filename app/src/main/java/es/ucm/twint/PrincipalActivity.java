@@ -1,5 +1,6 @@
 package es.ucm.twint;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,6 +10,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import es.ucm.twint.databinding.ActivityPrincipalBinding;
 
 public class PrincipalActivity extends AppCompatActivity {
@@ -16,7 +19,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityPrincipalBinding binding;
     public Button btUploadImage;
-
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +59,13 @@ public class PrincipalActivity extends AppCompatActivity {
                 loadChatListFragment();
                 return true;
             case R.id.menu_item_logout:
-                System.exit(1);
-                return true;
+                FirebaseAuth.getInstance().signOut();
+
+                for(int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); ++i) {
+                    getSupportFragmentManager().popBackStack();
+                }
+                Intent intent = new Intent(this, SessionActivity.class);
+                startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -255,4 +255,23 @@
         <item>Zambia</item>
         <item>Zimbabue</item>
     </string-array>
+
+    <string-array name="sexo">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>Ninguno</item>
+    </string-array>
+
+
+    <string-array name="ocupacion">
+        <item>Estudiante</item>
+        <item>Profesor@</item>
+        <item>Personal</item>
+    </string-array>
+
+    <string-array name="preferencias">
+        <item>Hombre</item>
+        <item>Mujer</item>
+        <item>Ambos</item>
+    </string-array>
 </resources>
