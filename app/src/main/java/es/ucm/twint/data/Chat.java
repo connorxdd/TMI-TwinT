@@ -1,9 +1,8 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmObject;
 import org.bson.types.ObjectId;
 
-public class Chat extends RealmObject {
+public class Chat{
 
     private ObjectId _id;
     private Integer idChat;

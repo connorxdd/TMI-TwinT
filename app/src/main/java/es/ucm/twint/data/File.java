@@ -1,9 +1,8 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmObject;
 import org.bson.types.ObjectId;
 
-public class File extends RealmObject {
+public class File{
 
     private ObjectId _id;
     private Integer idFile;

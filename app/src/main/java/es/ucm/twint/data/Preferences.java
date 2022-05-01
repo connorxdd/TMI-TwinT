@@ -1,9 +1,8 @@
 package es.ucm.twint.data;
 
 import io.realm.RealmList;
-import io.realm.RealmObject;
 
-public class Preferences extends RealmObject {
+public class Preferences{
 
     private String target;
     private Integer ageGreaterThan;

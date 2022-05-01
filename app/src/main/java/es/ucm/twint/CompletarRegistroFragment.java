@@ -17,7 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import es.ucm.twint.data.User;
 import es.ucm.twint.databinding.FragmentCompletarRegistroBinding;
 
 public class CompletarRegistroFragment extends Fragment {
@@ -25,11 +28,14 @@ public class CompletarRegistroFragment extends Fragment {
     private FragmentCompletarRegistroBinding binding;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
+    private DatabaseReference dbRef;
 
+    private User userInfo;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("users");
         firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -82,20 +88,24 @@ public class CompletarRegistroFragment extends Fragment {
 //
                 final String currentName = binding.etNombre.getText().toString();
                 final String currentPsswd = binding.etPassword.getText().toString();
-                if(!currentName.isEmpty() && !currentPsswd.isEmpty() &&
-                        (currentName.length() >= 6 && currentPsswd.length() >= 6)) {
+                if(allFieldsCompleted()) {
 
                     mAuth.createUserWithEmailAndPassword(currentName + "@twint.com", currentPsswd)
                             .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        dbRef.child(mAuth.getCurrentUser().getUid().toString()).setValue(userInfo);
                                         Toast.makeText(getActivity(), "Congrats", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getActivity(), PrincipalActivity.class);
-                                        startActivity(intent);
+                                        BiographyAndHobbiesFragment fragment = new BiographyAndHobbiesFragment();
+                                        getActivity()
+                                                .getSupportFragmentManager()
+                                                .beginTransaction()
+                                                .setReorderingAllowed(true)
+                                                .addToBackStack("BioHobby")
+                                                .add(R.id.cv_session, fragment)
+                                                .commit();
                                     } else {
-                                        // If sign in fails, display a message to the user.
-                                        //Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                         Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -135,5 +145,25 @@ public class CompletarRegistroFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public boolean allFieldsCompleted(){
+        if(!binding.etNombre.getText().toString().isEmpty() && !binding.etPassword.getText().toString().isEmpty()
+            && (binding.etNombre.getText().toString().length() >= 6 && binding.etPassword.getText().toString().length() >= 6)
+            &&!binding.etEdad.getText().toString().isEmpty() && !binding.spSexo.toString().isEmpty()
+            && !binding.spPais.toString().isEmpty() && !binding.spOcupacion.toString().isEmpty()
+            && !binding.spPreferencia.toString().isEmpty()){
+
+            //Cambiar el nombre, actualmente se usa como ID
+            userInfo = new User(binding.etNombre.getText().toString(), binding.etNombre.getText().toString(),
+                    binding.etPassword.getText().toString(), binding.etNombre.getText().toString() + "@twint.com",
+                    binding.spSexo.getSelectedItem().toString(), binding.spPais.getSelectedItem().toString(),
+                    binding.spOcupacion.getSelectedItem().toString(), binding.spPreferencia.getSelectedItem().toString());
+            return true;
+        }
+        else{
+            Toast.makeText(getActivity(), "No puede haber campos en blanco.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }

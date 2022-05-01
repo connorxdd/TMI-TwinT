@@ -1,10 +1,10 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmList;
-import io.realm.RealmObject;
 import org.bson.types.ObjectId;
 
-public class Hobby extends RealmObject {
+import io.realm.RealmList;
+
+public class Hobby{
 
     private ObjectId _id;
     private Integer idHobby;

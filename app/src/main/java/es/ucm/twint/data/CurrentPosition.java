@@ -1,8 +1,6 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmObject;
-
-public class CurrentPosition extends RealmObject {
+public class CurrentPosition{
 
     private Double latitude;
     private Double longitude;

@@ -1,9 +1,8 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmObject;
 import org.bson.types.ObjectId;
 
-public class Match extends RealmObject {
+public class Match{
 
     private ObjectId _id;
     private Integer idMatch;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="countries">
+        <item>España</item>
         <item>Afganistán</item>
         <item>Albania</item>
         <item>Alemania</item>
@@ -66,7 +67,6 @@
         <item>Eritrea</item>
         <item>Eslovaquia</item>
         <item>Eslovenia</item>
-        <item>España</item>
         <item>Estados Unidos</item>
         <item>Estonia</item>
         <item>Etiopía</item>

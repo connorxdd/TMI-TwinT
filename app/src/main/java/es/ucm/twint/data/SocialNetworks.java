@@ -1,8 +1,6 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmObject;
-
-public class SocialNetworks extends RealmObject {
+public class SocialNetworks{
 
     private String facebook;
     private String instagam;

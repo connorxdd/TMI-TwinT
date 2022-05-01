@@ -1,9 +1,8 @@
 package es.ucm.twint.data;
 
-import io.realm.RealmObject;
 import org.bson.types.ObjectId;
 
-public class Like extends RealmObject {
+public class Like{
 
     private ObjectId _id;
     private Integer idLike;
