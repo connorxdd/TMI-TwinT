@@ -1,6 +1,5 @@
 package es.ucm.twint;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,8 +63,9 @@ public class PrincipalActivity extends AppCompatActivity {
                 for(int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); ++i) {
                     getSupportFragmentManager().popBackStack();
                 }
-                Intent intent = new Intent(this, SessionActivity.class);
-                startActivity(intent);
+                finish();
+                //Intent intent = new Intent(this, SessionActivity.class);
+                //startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
         }

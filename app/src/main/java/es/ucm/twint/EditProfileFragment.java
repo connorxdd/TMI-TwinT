@@ -1,5 +1,8 @@
 package es.ucm.twint;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -24,7 +27,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -53,15 +58,17 @@ public class EditProfileFragment extends Fragment {
     Button btSave;
     private Uri myImage;
     private ImageView mImageView;
-    FirebaseStorage storage;
-    public EditProfileFragment() {
-        // Required empty public constructor
+    private FirebaseStorage storage;
+    private FirebaseAuth mAuth;
+    public EditProfileFragment() { // Required empty public constructor
     }
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
     @Override
@@ -85,7 +92,20 @@ public class EditProfileFragment extends Fragment {
         btUploadPicture = (Button) profileView.findViewById(R.id.bt_upload_pictures);
         btSave = (Button) profileView.findViewById(R.id.bt_save_changes);
         mImageView = profileView.findViewById(R.id.profile_image);
-        storage = FirebaseStorage.getInstance();
+
+        StorageReference imagenPerfil = storage.getReference().child("images").child(mAuth.getCurrentUser().getUid().toString()).child(mAuth.getCurrentUser().getUid().toString());
+        if(imagenPerfil != null) {
+            imagenPerfil.getBytes(1024 * 1024)
+                    .addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                            mImageView.setImageBitmap(bitmap);
+                        }
+                    });
+        }
+
+
     }
 
     @Override
@@ -156,7 +176,13 @@ public class EditProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 uploadImage();
-                int a = 0;
+
+                for(int i = 0; i < getActivity().getSupportFragmentManager().getBackStackEntryCount(); ++i) {
+                    getActivity().getSupportFragmentManager().popBackStack();
+
+                }
+                Intent intent = new Intent(getActivity(), PrincipalActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -217,8 +243,8 @@ public class EditProfileFragment extends Fragment {
 
     private void uploadImage() {
         if(myImage != null){
-            String imagePath = "images/" + perfil.getId();
-            StorageReference reference = storage.getReference().child(imagePath);
+            String imagePath = "images/" + mAuth.getCurrentUser().getUid().toString();
+            StorageReference reference = storage.getReference().child(imagePath).child(mAuth.getCurrentUser().getUid().toString());
             reference.putFile(myImage).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {

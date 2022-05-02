@@ -15,6 +15,7 @@ public class User {
     private String country;
     private String occupationType;
     private String preferencia;
+    private String currentStatus;
    // private String occupation;
     //private String usualZone;
     //private CurrentPosition currentPosition;
@@ -27,7 +28,7 @@ public class User {
     private String partitionKey;*/
 
     public User() { }  // RealmObject subclasses must provide an empty constructor
-    public User(String id, String name, String password, String email, String sex, String country, String occupationType, String preferencia){
+    public User(String id, String name, String password, String email, String sex, String country, String occupationType, String preferencia, String status){
         this._id = id;
         this.name = name;
         this.password = password;
@@ -37,6 +38,7 @@ public class User {
         this.country = country;
         this.occupationType = occupationType;
         this.preferencia = preferencia;
+        this.currentStatus = status;
     }
     // Standard getters & setters
     public String get_id() { return _id; }
@@ -74,6 +76,14 @@ public class User {
 
     public String getOccupationType() { return occupationType; }
     public void setOccupationType(String occupationType) { this.occupationType = occupationType; }
+
+    public String getCurrentStatus() {
+        return currentStatus;
+    }
+
+    public void setCurrentStatus(String currentStatus) {
+        this.currentStatus = currentStatus;
+    }
 
     //public String getOccupation() { return occupation; }
    // public void setOccupation(String occupation) { this.occupation = occupation; }

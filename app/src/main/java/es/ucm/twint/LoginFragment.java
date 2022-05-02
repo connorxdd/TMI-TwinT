@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import es.ucm.twint.databinding.FragmentLoginBinding;
 
@@ -30,7 +29,7 @@ public class LoginFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+        /*firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -41,7 +40,7 @@ public class LoginFragment extends Fragment {
                     return;
                 }
             }
-        };
+        };*/
     }
 
     @Override
@@ -78,7 +77,7 @@ public class LoginFragment extends Fragment {
         binding.btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onUserLogin();
+               onUserLogin();
             }
         });
 
@@ -101,15 +100,20 @@ public class LoginFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(firebaseAuthStateListener);
+        //mAuth.addAuthStateListener(firebaseAuthStateListener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        mAuth.removeAuthStateListener(firebaseAuthStateListener);
+        //mAuth.removeAuthStateListener(firebaseAuthStateListener);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        //mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

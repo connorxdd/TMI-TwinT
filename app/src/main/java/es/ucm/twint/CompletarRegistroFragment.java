@@ -1,6 +1,5 @@
 package es.ucm.twint;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,18 +34,18 @@ public class CompletarRegistroFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference().child("users");
-        firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+        /*firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null){
-                    Intent intent = new Intent(getActivity(), PrincipalActivity.class);
+                   /Intent intent = new Intent(getActivity(), PrincipalActivity.class);
                     startActivity(intent);
                     getActivity().finish();
                     return;
                 }
             }
-        };
+        };*/
     }
 
     @Override
@@ -96,7 +94,7 @@ public class CompletarRegistroFragment extends Fragment {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         dbRef.child(mAuth.getCurrentUser().getUid().toString()).setValue(userInfo);
-                                        Toast.makeText(getActivity(), "Congrats", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), "Primer paso completado.", Toast.LENGTH_SHORT).show();
                                         BiographyAndHobbiesFragment fragment = new BiographyAndHobbiesFragment();
                                         getActivity()
                                                 .getSupportFragmentManager()
@@ -105,6 +103,7 @@ public class CompletarRegistroFragment extends Fragment {
                                                 .addToBackStack("BioHobby")
                                                 .add(R.id.cv_session, fragment)
                                                 .commit();
+
                                     } else {
                                         Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_SHORT).show();
                                     }
@@ -129,17 +128,6 @@ public class CompletarRegistroFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(firebaseAuthStateListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mAuth.removeAuthStateListener(firebaseAuthStateListener);
-    }
 
     @Override
     public void onDestroyView() {
@@ -158,7 +146,7 @@ public class CompletarRegistroFragment extends Fragment {
             userInfo = new User(binding.etNombre.getText().toString(), binding.etNombre.getText().toString(),
                     binding.etPassword.getText().toString(), binding.etNombre.getText().toString() + "@twint.com",
                     binding.spSexo.getSelectedItem().toString(), binding.spPais.getSelectedItem().toString(),
-                    binding.spOcupacion.getSelectedItem().toString(), binding.spPreferencia.getSelectedItem().toString());
+                    binding.spOcupacion.getSelectedItem().toString(), binding.spPreferencia.getSelectedItem().toString(), "Register");
             return true;
         }
         else{

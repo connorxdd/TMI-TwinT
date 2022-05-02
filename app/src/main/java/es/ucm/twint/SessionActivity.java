@@ -23,7 +23,6 @@ public class SessionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivitySessionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -32,6 +31,19 @@ public class SessionActivity extends AppCompatActivity {
         for(int i = 0; i < getSupportFragmentManager().getBackStackEntryCount(); ++i) {
             getSupportFragmentManager().popBackStack();
         }
+        mAuth = FirebaseAuth.getInstance();
+        /*firebaseAuthStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null){
+                    Intent intent = new Intent(SessionActivity.this, PrincipalActivity.class);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+            }
+        };*/
         if (savedInstanceState == null) {
             Bundle bundle = new Bundle();
             bundle.putInt("pepe", 0); // For testing
@@ -59,7 +71,17 @@ public class SessionActivity extends AppCompatActivity {
         return dbRef;
     }
 
+    /*@Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(firebaseAuthStateListener);
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(firebaseAuthStateListener);
+    }*/
 //    @Override
 //    public boolean onSupportNavigateUp() {
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_session);
