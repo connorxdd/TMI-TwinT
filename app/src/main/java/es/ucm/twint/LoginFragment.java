@@ -90,7 +90,7 @@ public class LoginFragment extends Fragment {
                         .getSupportFragmentManager()
                         .beginTransaction()
                         .setReorderingAllowed(true)
-                        .addToBackStack("Registro")
+                        //.addToBackStack("Registro")
                         .add(R.id.cv_session, fragment)
                         .commit();
             }

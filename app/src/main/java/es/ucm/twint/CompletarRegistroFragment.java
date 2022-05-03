@@ -100,7 +100,7 @@ public class CompletarRegistroFragment extends Fragment {
                                                 .getSupportFragmentManager()
                                                 .beginTransaction()
                                                 .setReorderingAllowed(true)
-                                                .addToBackStack("BioHobby")
+                                                //.addToBackStack("BioHobby")
                                                 .add(R.id.cv_session, fragment)
                                                 .commit();
 
