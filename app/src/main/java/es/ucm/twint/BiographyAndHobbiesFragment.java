@@ -97,6 +97,7 @@ public class BiographyAndHobbiesFragment extends Fragment {
                     else{
                         Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
+
                 }
             });
         }

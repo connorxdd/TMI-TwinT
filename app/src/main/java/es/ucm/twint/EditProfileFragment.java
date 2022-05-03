@@ -30,6 +30,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -60,6 +62,7 @@ public class EditProfileFragment extends Fragment {
     private ImageView mImageView;
     private FirebaseStorage storage;
     private FirebaseAuth mAuth;
+    private DatabaseReference dbRef;
     public EditProfileFragment() { // Required empty public constructor
     }
 
@@ -69,6 +72,7 @@ public class EditProfileFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         storage = FirebaseStorage.getInstance();
+        dbRef = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid().toString());
     }
 
     @Override
@@ -84,6 +88,16 @@ public class EditProfileFragment extends Fragment {
         etPreferences = (EditText) profileView.findViewById(R.id.et_preferences);
         etPersonalDescription = (EditText) profileView.findViewById(R.id.et_personal_description);
         etBiogrphy = (EditText) profileView.findViewById(R.id.et_biography);
+
+        dbRef = dbRef.child("Biography");
+
+        ///Aqui, rellenar el campo Biography, con la información que existirá en la base de datos.
+        ///------------------------------------------------------------------------------------
+        //etBiogrphy.setText();
+        ///------------------------------------------------------------------------------------
+
+
+
         tvSocialNetwork = (TextView) profileView.findViewById(R.id.tv_social_network);
         bSocialNetworkDropDownIsOn = false;
         tlSocialNetworks = (TableLayout) profileView.findViewById(R.id.tl_social_networks);
@@ -179,7 +193,6 @@ public class EditProfileFragment extends Fragment {
 
                 for(int i = 0; i < getActivity().getSupportFragmentManager().getBackStackEntryCount(); ++i) {
                     getActivity().getSupportFragmentManager().popBackStack();
-
                 }
                 Intent intent = new Intent(getActivity(), PrincipalActivity.class);
                 startActivity(intent);

@@ -59,17 +59,17 @@ public class SessionActivity extends AppCompatActivity {
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
     }
 
-    public FirebaseAuth getmAuth() {
-        return mAuth;
-    }
+    //public FirebaseAuth getmAuth() {
+        //return mAuth;
+    //}
 
-    public FirebaseAuth.AuthStateListener getFirebaseAuthStateListener() {
+    /*public FirebaseAuth.AuthStateListener getFirebaseAuthStateListener() {
         return firebaseAuthStateListener;
-    }
+    }*/
 
-    public DatabaseReference getDbRef() {
+    /*public DatabaseReference getDbRef() {
         return dbRef;
-    }
+    }*/
 
     /*@Override
     public void onStart() {

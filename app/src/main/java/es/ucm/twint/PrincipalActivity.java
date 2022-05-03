@@ -86,7 +86,7 @@ public class PrincipalActivity extends AppCompatActivity {
         getSupportFragmentManager()
                 .beginTransaction()
                 .setReorderingAllowed(true)
-                .addToBackStack("Lista de chates")
+                .addToBackStack("Lista de chats")
                 .add(R.id.cv_principal, fragment)
                 .commit();
     }
