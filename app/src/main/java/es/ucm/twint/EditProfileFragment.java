@@ -50,7 +50,7 @@ public class EditProfileFragment extends Fragment {
     Perfil perfil;
 
     EditText etPreferences;
-    EditText etPersonalDescription;
+    //EditText etPersonalDescription;
     EditText etBiogrphy;
 
     TextView tvSocialNetwork;
@@ -88,7 +88,7 @@ public class EditProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         etPreferences = (EditText) profileView.findViewById(R.id.et_preferences);
-        etPersonalDescription = (EditText) profileView.findViewById(R.id.et_personal_description);
+        //etPersonalDescription = (EditText) profileView.findViewById(R.id.et_personal_description);
         etBiogrphy = (EditText) profileView.findViewById(R.id.et_biography);
 
         //dbRef = dbRef.child("Biography");
@@ -116,7 +116,7 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-        dbRef.child("PersonalDescription").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        /*dbRef.child("PersonalDescription").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -124,7 +124,7 @@ public class EditProfileFragment extends Fragment {
                 }
             }
         });
-
+        */
         dbRef.child("SocialNetwork").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -176,7 +176,7 @@ public class EditProfileFragment extends Fragment {
 
         perfil = new Perfil();
 
-        etPersonalDescription.addTextChangedListener(new TextWatcher() {
+        /*etPersonalDescription.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -191,7 +191,7 @@ public class EditProfileFragment extends Fragment {
             public void afterTextChanged(Editable editable) {
                 perfil.setPersonalDescription(editable.toString());
             }
-        });
+        });*/
 
         etPreferences.addTextChangedListener(new TextWatcher() {
             @Override
