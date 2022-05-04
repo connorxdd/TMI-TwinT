@@ -30,12 +30,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
 import java.util.Set;
 
 import es.ucm.mocks.Perfil;
@@ -89,14 +91,60 @@ public class EditProfileFragment extends Fragment {
         etPersonalDescription = (EditText) profileView.findViewById(R.id.et_personal_description);
         etBiogrphy = (EditText) profileView.findViewById(R.id.et_biography);
 
-        dbRef = dbRef.child("Biography");
+        //dbRef = dbRef.child("Biography");
 
         ///Aqui, rellenar el campo Biography, con la información que existirá en la base de datos.
         ///------------------------------------------------------------------------------------
         //etBiogrphy.setText();
         ///------------------------------------------------------------------------------------
 
+        dbRef.child("Biography").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    etBiogrphy.setText(String.valueOf(task.getResult().getValue()));
+                }
+            }
+        });
 
+        dbRef.child("Preferences").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    etPreferences.setText(String.valueOf(task.getResult().getValue()));
+                }
+            }
+        });
+
+        dbRef.child("PersonalDescription").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    etPersonalDescription.setText(String.valueOf(task.getResult().getValue()));
+                }
+            }
+        });
+
+        dbRef.child("SocialNetwork").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (DataSnapshot ds : task.getResult().getChildren()) {
+                        TableRow row = tlSocialNetworks.findViewWithTag(ds.getKey());
+                        int count = row.getChildCount();
+                        for (int i = 0; i < count; i++) {
+                            View v = row.getChildAt(i);
+                            if (v instanceof EditText) {
+                                ((EditText) v).setText(ds.getValue(String.class));
+                            }
+                            else if (v instanceof CheckBox) {
+                                ((CheckBox) v).setChecked(!ds.getValue(String.class).isEmpty());
+                            }
+                        }
+                    }
+                }
+            }
+        });
 
         tvSocialNetwork = (TextView) profileView.findViewById(R.id.tv_social_network);
         bSocialNetworkDropDownIsOn = false;
@@ -189,6 +237,11 @@ public class EditProfileFragment extends Fragment {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                dbRef.child("Preferences").setValue(perfil.getPreferences());
+                dbRef.child("Biography").setValue(perfil.getBiography());
+                dbRef.child("PersonalDescription").setValue(perfil.getPersonalDescription());
+                dbRef.child("SocialNetwork").setValue(perfil.getSocialNetworks());
                 uploadImage();
 
                 for(int i = 0; i < getActivity().getSupportFragmentManager().getBackStackEntryCount(); ++i) {
@@ -214,6 +267,8 @@ public class EditProfileFragment extends Fragment {
             checkBox.setClickable(false);
             TextView textView = new TextView(getActivity());
             EditText editText = new EditText(getActivity());
+
+            row.setTag(key);
 
             String value = perfil.getSocialNetwork(key);
             checkBox.setChecked(!(value == null || value.isEmpty()));
