@@ -2,7 +2,8 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -43,7 +44,7 @@
             android:id="@+id/et_preferences"
             android:layout_width="300dp"
             android:layout_height="40dp" />
-
+<!--
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -53,6 +54,18 @@
             android:id="@+id/et_personal_description"
             android:layout_width="300dp"
             android:layout_height="40dp" />
+-->
+
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Biografía" />
+
+        <EditText
+            android:id="@+id/et_biography"
+            android:layout_width="300dp"
+            android:layout_height="40dp"/>
 
         <TextView
             android:id="@+id/tv_social_network"
@@ -67,16 +80,6 @@
 
         </TableLayout>
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Biografía" />
-
-        <EditText
-            android:id="@+id/et_biography"
-            android:layout_width="300dp"
-            android:layout_height="40dp"/>
-
         <Button
             android:id="@+id/bt_upload_pictures"
             android:layout_marginTop="10dp"
@@ -87,7 +90,7 @@
 
         <Button
             android:id="@+id/bt_save_changes"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/purple_200"
